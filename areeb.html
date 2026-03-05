@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Special Request For Eidi 🌙</title>
+
+    <style>
+
+        body {
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            /* Soft lavender background */
+
+            background-color: #f3e5f5;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            margin: 0;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .container {
+
+            text-align: center;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 30px;
+
+            /* Purple shadow */
+
+            box-shadow: 0 15px 35px rgba(123, 31, 162, 0.2);
+
+            width: 90%;
+
+            max-width: 450px;
+
+            transition: all 0.5s ease;
+
+        }
+
+
+
+        h1 {
+
+            color: #7b1fa2; /* Deep Purple */
+
+            margin-bottom: 25px;
+
+            font-size: 26px;
+
+        }
+
+
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-top: 20px;
+
+        }
+
+
+
+        button {
+
+            padding: 12px 25px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            border: none;
+
+            border-radius: 50px;
+
+            cursor: pointer;
+
+            transition: transform 0.2s;
+
+        }
+
+
+
+        #yesBtn {
+
+            background-color: #9c27b0; /* Violet */
+
+            color: white;
+
+            box-shadow: 0 4px 10px rgba(156, 39, 176, 0.3);
+
+        }
+
+
+
+        #noBtn {
+
+            background-color: #9575cd; /* Lighter Purple */
+
+            color: white;
+
+            position: relative;
+
+            z-index: 999;
+
+        }
+
+
+
+        /* Form Styles */
+
+        .address-form {
+
+            display: none;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+            margin-top: 20px;
+
+            text-align: left;
+
+        }
+
+
+
+        input {
+
+            padding: 12px;
+
+            border: 2px solid #e1bee7;
+
+            border-radius: 10px;
+
+            outline: none;
+
+        }
+
+
+
+        input:focus {
+
+            border-color: #9c27b0;
+
+        }
+
+
+
+        label {
+
+            color: #7b1fa2;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+        }
+
+
+
+        .submit-btn {
+
+            background-color: #6a1b9a;
+
+            color: white;
+
+            margin-top: 10px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="container" id="mainCard">
+
+        <div id="askSection">
+
+            <h1 id="question">Will you please take your Eidi from me? 🎁✨</h1>
+
+            <div class="buttons">
+
+                <button id="yesBtn" onclick="showForm()">Yess, I am gona take it! 😍🥳💃</button>
+
+                <button id="noBtn" onmouseover="moveButton()">No, I will not take it 😔</button>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="formSection" class="address-form">
+
+            <h1 style="font-size: 22px;">Thank you soo much for accepting it! ❤️</h1>
+
+            <p style="text-align:center; color: #555;">Please enter your details below:</p>
+
+           
+
+            <label>Full Name</label>
+
+            <input type="text" placeholder="Enter your name">
+
+           
+
+            <label>Delivery Address</label>
+
+            <input type="text" placeholder="Where should I send the Eidi?">
+
+           
+
+            <label>Favorite Sweet/Treat</label>
+
+            <input type="text" placeholder="Optional but recommended! 🍫">
+
+           
+
+            <button class="submit-btn" onclick="finish()">Submit</button>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        function moveButton() {
+
+            const noBtn = document.getElementById('noBtn');
+
+            const question = document.getElementById('question');
+
+
+
+            question.innerHTML = "Please? I really want to give you Eidi! 🥺🤲";
+
+            noBtn.style.position = 'absolute';
+
+
+
+            const buttonWidth = noBtn.offsetWidth;
+
+            const buttonHeight = noBtn.offsetHeight;
+
+           
+
+            const maxX = window.innerWidth - buttonWidth - 40;
+
+            const maxY = window.innerHeight - buttonHeight - 40;
+
+
+
+            const randomX = Math.max(20, Math.floor(Math.random() * maxX));
+
+            const randomY = Math.max(20, Math.floor(Math.random() * maxY));
+
+
+
+            noBtn.style.left = randomX + 'px';
+
+            noBtn.style.top = randomY + 'px';
+
+        }
+
+
+
+        function showForm() {
+
+            document.getElementById('askSection').style.display = 'none';
+
+            document.getElementById('formSection').style.display = 'flex';
+
+            document.getElementById('mainCard').style.maxWidth = '400px';
+
+        }
+
+
+
+        function finish() {
+
+            const card = document.getElementById('mainCard');
+
+            card.innerHTML = `
+
+                <h1 style="font-size: 40px;">Order Confirmed! 🎉</h1>
+
+                <p style="font-size: 18px; color: #555;">The Eidi is on its way to your heart (and your address)! 🥰💰</p>
+
+                <div style="font-size: 50px; margin-top:20px;">🌙✨💜</div>
+
+            `;
+
+            document.body.style.backgroundColor = "#e1bee7";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
